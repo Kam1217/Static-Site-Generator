@@ -16,4 +16,8 @@ class TestHTMLNode(unittest.TestCase):
         expected = "HTMLNode(tag=p,value=Hello World!,children=None,props=None)"
         self.assertEqual(actual,expected)
 
-
+    def test_multiple_properties_props(self):
+        node = HTMLNode(props = {"href": "https://www.boot.dev/", "target": "_blank", "extra_property": "extra" })
+        actual = node.props_to_html()
+        expected = ' href="https://www.boot.dev/" target="_blank" extra_property="extra"'
+        self.assertEqual(actual,expected)
