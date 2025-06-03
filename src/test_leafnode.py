@@ -15,3 +15,8 @@ class TestLeafNod(unittest.TestCase):
         with self.assertRaises(ValueError):
             node = LeafNode("p", None)
             node.to_html()
+
+    def test_raise_error_empty_str(self):
+        with self.assertRaises(ValueError):
+            node = LeafNode("p", "")
+            node.to_html()
