@@ -10,3 +10,8 @@ class TestLeafNod(unittest.TestCase):
     def test_leaf_to_html_a(self):
         node = LeafNode("a", "Click me!", {"href": "https://www.boot.dev/"})
         self.assertEqual(node.to_html(), '<a href="https://www.boot.dev/">Click me!</a>')
+
+    def test_raise_error_none(self):
+        with self.assertRaises(ValueError):
+            node = LeafNode("p", None)
+            node.to_html()
