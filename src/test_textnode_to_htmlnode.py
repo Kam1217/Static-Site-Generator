@@ -21,3 +21,9 @@ class TestParentNode(unittest.TestCase):
         html_node = text_node_to_html_node(node)
         self.assertEqual(html_node.tag, "i")
         self.assertEqual(html_node.value, "This is an italic text node")
+
+    def test_code(self):
+        node = TextNode("print(This is code written in python)", TextType.CODE)
+        html_node = text_node_to_html_node(node)
+        self.assertEqual(html_node.tag, "code")
+        self.assertEqual(html_node.value, "print(This is code written in python)")
