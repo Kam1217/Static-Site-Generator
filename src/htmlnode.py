@@ -41,6 +41,7 @@ class ParentNode(HTMLNode):
     def to_html(self):
         if self.tag == None or self.tag == "":
             raise ValueError("All parent nodes must have a tag")
-        if self.children == None:
+        if self.children == None or len(self.children) == 0:
             raise ValueError("All parent nodes must have children")
-        
+        else:
+            return f"<{self.tag}>{"".join(list(map(lambda child : child.to_html(), self.children)))}</{self.tag}>"
