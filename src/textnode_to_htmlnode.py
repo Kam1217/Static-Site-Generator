@@ -1,5 +1,5 @@
-from textnode import TextType, TextNode
-from htmlnode import HTMLNode, LeafNode, ParentNode
+from textnode import TextType
+from htmlnode import HTMLNode, LeafNode 
 
 def text_node_to_html_node(text_node):
     if text_node.text_type == TextType.TEXT:
@@ -21,4 +21,4 @@ def text_node_to_html_node(text_node):
         return LeafNode("img","",{"src": text_node.url, "alt": text_node.text})
 
     else:
-        raise Exception("TextNode is not a type of TextType")
+        raise Exception("TextNode is not a TextType such as text,bold,italic,code,link or image")
