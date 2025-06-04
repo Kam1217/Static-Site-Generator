@@ -27,3 +27,11 @@ class TestParentNode(unittest.TestCase):
         html_node = text_node_to_html_node(node)
         self.assertEqual(html_node.tag, "code")
         self.assertEqual(html_node.value, "print(This is code written in python)")
+
+    def test_link(self):
+        node = TextNode("Click me! - This is a link", TextType.LINK, url="https://www.boot.dev/") 
+        html_node= text_node_to_html_node(node)
+        self.assertEqual(html_node.tag, "a")
+        self.assertEqual(html_node.value,"Click me! - This is a link")
+        self.assertDictEqual(html_node.props, {"href":"https://www.boot.dev/"})
+        
