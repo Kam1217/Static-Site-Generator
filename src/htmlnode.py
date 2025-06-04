@@ -41,4 +41,6 @@ class ParentNode(HTMLNode):
     def to_html(self):
         if self.tag == None or self.tag == "":
             raise ValueError("All parent nodes must have a tag")
+        if self.children == None:
+            raise ValueError("All parent nodes must have children")
         
