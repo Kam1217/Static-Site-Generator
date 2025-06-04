@@ -14,4 +14,7 @@ def text_node_to_html_node(text_node):
     elif text_node.text_type == TextType.CODE:
         return LeafNode("code", text_node.text)
     
+    elif text_node.text_type == TextType.LINK:
+        return LeafNode("a",text_node.text,{"href" : text_node.url})
+    
 
