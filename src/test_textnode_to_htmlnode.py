@@ -34,4 +34,10 @@ class TestParentNode(unittest.TestCase):
         self.assertEqual(html_node.tag, "a")
         self.assertEqual(html_node.value,"Click me! - This is a link")
         self.assertDictEqual(html_node.props, {"href":"https://www.boot.dev/"})
-        
+
+    def test_image(self):
+        node = TextNode("Ducks",TextType.IMAGE, url="https://images.pexels.com/photos/132464/pexels-photo-132464.jpeg") 
+        html_node = text_node_to_html_node(node)
+        self.assertEqual(html_node.tag, "img")
+        self.assertEqual(html_node.value, "")
+        self.assertEqual(html_node.props, {"src":"https://images.pexels.com/photos/132464/pexels-photo-132464.jpeg", "alt":"Ducks"})
