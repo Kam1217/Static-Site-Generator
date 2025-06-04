@@ -16,3 +16,14 @@ class TestParentNode(unittest.TestCase):
             parent_node.to_html(),
             "<div><span><b>grandchild</b></span></div>",
         )
+    
+    def test_raise_error_no_tag(self):
+        with self.assertRaises(ValueError):
+            child_node = LeafNode("span", "child")
+            parent_node = ParentNode("",[child_node])
+            parent_node.to_html()
+
+    def test_raise_error_no_child(self):
+        with self.assertRaises(ValueError):
+            parent_node = ParentNode("p",[])
+            parent_node.to_html()
