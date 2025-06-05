@@ -8,12 +8,12 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
             new_nodes.append(old_node)
             continue
 
-        delimiter_chars = old_node.text.split(delimiter)
+        segments = old_node.text.split(delimiter)
 
-        if len(delimiter_chars) % 2 == 0:
+        if len(segments) % 2 == 0:
             raise ValueError("Invalid markdown, formatted section not closed")
     
-        for i, char in enumerate(delimiter_chars):
+        for i, char in enumerate(segments):
             if char == "":
                 continue
 
