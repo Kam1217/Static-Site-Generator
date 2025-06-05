@@ -33,3 +33,8 @@ class TestSplitNodesDelimiter(unittest.TestCase):
             TextNode(" word", TextType.TEXT),
         ]
         self.assertEqual(new_nodes, expected)
+
+    def test_unclosed_delimiter_raises_error(self):
+        old_node = TextNode("This has **unclosed bold text", TextType.TEXT)
+        with self.assertRaises(ValueError):
+            split_nodes_delimiter([old_node], "**", TextType.BOLD)
