@@ -69,3 +69,12 @@ class TestSplitNodesDelimiter(unittest.TestCase):
             TextNode(" here", TextType.TEXT)
         ]
         self.assertEqual(new_nodes, expected)
+
+    def test_first_word_delimiters(self):
+        old_node = TextNode("**Bold** first word", TextType.TEXT)
+        new_nodes = split_nodes_delimiter([old_node], "**", TextType.BOLD)
+        expected = [
+            TextNode("Bold", TextType.BOLD),
+            TextNode(" first word", TextType.TEXT)
+        ]
+        self.assertEqual(new_nodes,expected)
