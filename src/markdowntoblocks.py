@@ -1,2 +1,10 @@
 def markdown_to_blocks(doc):
-    pass
+    blocks = doc.split("\n\n")
+    result = []
+
+    for block in blocks:
+        stripped = block.strip()
+        if stripped:
+            result.append(stripped)
+    
+    return result
