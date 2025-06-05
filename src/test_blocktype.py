@@ -15,7 +15,9 @@ class TestSplitNodesDelimiter(unittest.TestCase):
         block = ">quote1, >quote2"
         self.assertEqual(block_to_block_type(block), BlockType.QUOTE)
 
-        
+    def test_block_to_unordered(self):
+        block = "- list1, - list2"
+        self.assertEqual(block_to_block_type(block), BlockType.UNORDERED_LIST)
 
 
     
