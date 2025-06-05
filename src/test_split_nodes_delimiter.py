@@ -38,3 +38,17 @@ class TestSplitNodesDelimiter(unittest.TestCase):
         old_node = TextNode("This has **unclosed bold text", TextType.TEXT)
         with self.assertRaises(ValueError):
             split_nodes_delimiter([old_node], "**", TextType.BOLD)
+
+    def test_multiple_delimiters(self):
+        old_node = TextNode("Start **bold1** middle **bold2** end", TextType.TEXT)
+        new_nodes = split_nodes_delimiter([old_node], "**", TextType.BOLD)
+        expected = [
+            TextNode("Start ", TextType.TEXT),
+            TextNode("bold1", TextType.BOLD),
+            TextNode(" middle ", TextType.TEXT),
+            TextNode("bold2", TextType.BOLD),
+            TextNode(" end", TextType.TEXT),
+        ]
+        self.assertEqual(new_nodes, expected)
+    
+    
