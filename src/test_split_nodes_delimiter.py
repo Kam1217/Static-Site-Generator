@@ -13,3 +13,15 @@ class TestSplitNodesDelimiter(unittest.TestCase):
             TextNode(" text", TextType.TEXT),
         ]
         self.assertEqual(new_nodes, expected)
+
+    def test_italic_delimiter(self):
+        old_node = TextNode("This is an _italic_ word", TextType.TEXT)
+        new_nodes = split_nodes_delimiter([old_node], "_", TextType.ITALIC)
+        expected = [
+            TextNode("This is an ", TextType.TEXT),
+            TextNode("italic", TextType.ITALIC),
+            TextNode(" word", TextType.TEXT)
+        ]
+        self.assertEqual(new_nodes, expected)
+
+
