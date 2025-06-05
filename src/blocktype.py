@@ -9,7 +9,7 @@ class BlockType(Enum):
     ORDERED_LIST = "ordered"
 
 def block_to_block_type(block):
-    
+
     count = 0
     for char in block:
         if char == "#":
@@ -18,3 +18,6 @@ def block_to_block_type(block):
             break   
     if count >= 1 and count <= 6 and block[count] == " ":
         return BlockType.HEADING
+    
+    if block.startswith("```") and block.endswith("```"):
+        return BlockType.CODE
