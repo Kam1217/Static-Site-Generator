@@ -51,4 +51,21 @@ class TestSplitNodesDelimiter(unittest.TestCase):
         ]
         self.assertEqual(new_nodes, expected)
     
+    def test_various_delimiters(self):
+        old_node = TextNode("Mix of **bold**, _italic_, and `code` here", TextType.TEXT)
     
+  
+        bold = split_nodes_delimiter([old_node], "**", TextType.BOLD)
+        italic = split_nodes_delimiter(bold, "_", TextType.ITALIC)
+        new_nodes = split_nodes_delimiter(italic, "`", TextType.CODE)
+    
+        expected = [
+            TextNode("Mix of ", TextType.TEXT),
+            TextNode("bold", TextType.BOLD),
+            TextNode(", ", TextType.TEXT),
+            TextNode("italic", TextType.ITALIC),
+            TextNode(", and ", TextType.TEXT),
+            TextNode("code", TextType.CODE),
+            TextNode(" here", TextType.TEXT)
+        ]
+        self.assertEqual(new_nodes, expected)
