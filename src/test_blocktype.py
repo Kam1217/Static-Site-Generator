@@ -19,6 +19,10 @@ class TestSplitNodesDelimiter(unittest.TestCase):
         block = "- list1, - list2"
         self.assertEqual(block_to_block_type(block), BlockType.UNORDERED_LIST)
 
+    def test_block_to_ordered(self):
+        block = "1. list, 2. list"
+        self.assertEqual(block_to_block_type(block), BlockType.ORDERED_LIST)
+
 
     
 
