@@ -11,6 +11,12 @@ class TestSplitNodesDelimiter(unittest.TestCase):
         block = "```code```"
         self.assertEqual(block_to_block_type(block), BlockType.CODE)
 
+    def test_block_to_quote(self):
+        block = ">quote1, >quote2"
+        self.assertEqual(block_to_block_type(block), BlockType.QUOTE)
+
+        
+
 
     
 
