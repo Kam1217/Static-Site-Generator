@@ -17,8 +17,15 @@ def block_to_block_type(block):
         return BlockType.CODE
     
     lines = block.split("\n")
-    for line in lines:
-        if not line.startswith(">"):
-            return BlockType.PARAGRAPH
-    return BlockType.QUOTE
+    if block.startswith(">"):
+        for line in lines:
+            if not line.startswith(">"):
+                return BlockType.PARAGRAPH
+        return BlockType.QUOTE
+    if block.startswith("- "):
+        for line in lines:
+            if not line.startswith("- "):
+                return BlockType.PARAGRAPH
+        return BlockType.UNORDERED_LIST
+    
     
