@@ -7,6 +7,5 @@ def main():
     source = os.path.join(os.getcwd(), "static") 
     destination = os.path.join(os.getcwd(), "public")
     copy_content_from_source(source, destination)
-
 main()
 

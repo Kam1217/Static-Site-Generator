@@ -11,5 +11,12 @@ def copy_content_from_source(source, destination):
     os.mkdir(destination) 
 
     contents = os.listdir(source)
-    print(contents)
+    
+    for item in contents:
+        source_item_path = os.path.join(source, item)
+        if os.path.isfile(source_item_path):
+            shutil.copy(source_item_path, destination)
+        else:
+            new_destination = os.path.join(destination, item)
+            copy_content_from_source(source_item_path,new_destination)
    
