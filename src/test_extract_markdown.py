@@ -2,7 +2,7 @@ import unittest
 
 from extract_markdown_images_and_links import extract_markdown_images, extract_markdown_links
 
-class TestLeafNod(unittest.TestCase):
+class TestLeafNode(unittest.TestCase):
     def test_extract_markdown_images(self):
         matches = extract_markdown_images(
             "This is text with an ![image](https://i.imgur.com/zjjcJKZ.png)"
@@ -20,3 +20,4 @@ class TestLeafNod(unittest.TestCase):
             "This is text with a link [to boot dev](https://www.boot.dev) and [to youtube](https://www.youtube.com/@bootdotdev)"
         )
         self.assertListEqual([("to boot dev", "https://www.boot.dev"), ("to youtube", "https://www.youtube.com/@bootdotdev")], matches)
+        
