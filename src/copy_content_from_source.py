@@ -1,4 +1,5 @@
 import os
+import shutil
 
 def copy_content_from_source():
     # os.path.exists - Return True if path refers to an existing path or an open file descriptor. 
@@ -21,7 +22,15 @@ def copy_content_from_source():
     #STEP 1 = first delete all the contents of the destination directory (public) to ensure that the copy is clean.
     #os.path.join - make path to public intelligently - use os.getcwd() to make it work for any machine 
     #os.path.exists - check public exists - if not make it with os.mkdir
-    #osshutil.rmtree if exists to remove all contents 
+    #shutil.rmtree if exists to remove all contents 
     # make a new one with os.mkdir once deleted
     
+    public_path = os.path.join(os.getcwd(), "public")
     
+    if not os.path.exists(public_path):
+        os.mkdir(public_path)
+    else:
+        shutil.rmtree(public_path)
+        os.mkdir(public_path)
+
+    #STEP 2 =
