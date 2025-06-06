@@ -1,5 +1,3 @@
-   #open file - in main
-    #read file and convert to markddown to be passed in
 def extract_title(markdown):
 
     title = ""
