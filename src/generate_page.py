@@ -17,9 +17,15 @@ def generate_page(from_path, template_path, dest_path):
 
     new_template = template.replace("{{ Title }}", title).replace("{{ Content }}", html_content)
 
+    from_file.close()
+    template_file.close()
+
     directory = os.path.dirname(dest_path)
     if directory:
         os.makedirs(directory, exist_ok=True)
 
+    page = open(dest_path, mode= "w")
+    page.write(new_template)
 
+    page.close()
     
