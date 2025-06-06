@@ -11,10 +11,11 @@ def generate_page(from_path, template_path, dest_path):
     markdown = from_file.read()
     template = template_file.read()
 
-    html = markdown_to_html_node(markdown).to_html()
+    html_content = markdown_to_html_node(markdown).to_html()
     title = extract_title(markdown)
 
-    
+    new_template = template.replace("{{ Title }}", title).replace("{{ Content }}", html_content)
 
+   
 
     
