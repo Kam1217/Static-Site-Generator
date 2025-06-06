@@ -4,9 +4,6 @@ from copy_content_from_source import copy_content_from_source
 from generate_pages_recursive import generate_pages_recursive
 import sys
 
-
-
-
 def main():
     
     if len(sys.argv) == 1:
