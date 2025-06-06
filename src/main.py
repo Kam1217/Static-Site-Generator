@@ -12,9 +12,9 @@ def main():
         basepath = sys.argv[1]
 
     source = os.path.join(os.getcwd(), "static") 
-    destination = os.path.join(os.getcwd(), "public")
+    destination = os.path.join(os.getcwd(), "docs")
     copy_content_from_source(source, destination)
-    generate_pages_recursive("content", "template.html", "public", basepath)
+    generate_pages_recursive("content", "template.html", "docs", basepath)
     
 main()
 
