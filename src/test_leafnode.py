@@ -20,3 +20,8 @@ class TestLeafNode(unittest.TestCase):
         with self.assertRaises(ValueError):
             node = LeafNode("p", "")
             node.to_html()
+
+    def test_leaf_to_html_img_err(self):
+        with self.assertRaises(ValueError):
+            node = LeafNode("img", "", {"src":"https://images.pexels.com/photos/132464/pexels-photo-132464.jpeg", "alt": "Ducks"})
+            node.to_html()

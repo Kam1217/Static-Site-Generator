@@ -39,7 +39,7 @@ class TestParentNode(unittest.TestCase):
         node = TextNode("Ducks",TextType.IMAGE, url="https://images.pexels.com/photos/132464/pexels-photo-132464.jpeg") 
         html_node = text_node_to_html_node(node)
         self.assertEqual(html_node.tag, "img")
-        self.assertEqual(html_node.value, "")
+        self.assertEqual(html_node.value, "Ducks")
         self.assertEqual(html_node.props, {"src":"https://images.pexels.com/photos/132464/pexels-photo-132464.jpeg", "alt":"Ducks"})
 
     def test_raise_err_no_texttype(self):
